@@ -19,5 +19,6 @@ function ProductCard({ product }) {
       <p>In Stock: {product.inStock ? "In stock" : "Out of stock"}</p>
     </article>
   );
-}
+}    
+
 
