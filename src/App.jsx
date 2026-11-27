@@ -1,11 +1,12 @@
 import "./App.css";
+import { useState } from "react";
 // import { useState } from "react";
 // import { List } from "./components/List";
 // import { Welcome, WelcomeMessage } from "./components/Welcome";
 import { ProductList } from "./components/product-list";
 
 function App() {
-  const products = [
+  const [products, setProducts] = useState([
     {
       id: 1,
       name: "Notebook",
@@ -27,11 +28,27 @@ function App() {
       price: 12,
       inStock: true,
     },
-  ];
+  ]);
+
+  function handleAddProduct(productDetails) {
+    setProducts((currentProducts) => {
+      const nextId =
+        currentProducts.reduce(
+          (highestId, product) => Math.max(highestId, product.id),
+          0,
+        ) + 1;
+
+      return [
+        ...currentProducts,
+        { ...productDetails, id: nextId, inStock: true },
+      ];
+    });
+  }
+
   return (
     <main>
       <h1>Welcome to React</h1>
-      <ProductList products={products} />
+      <ProductList products={products} onAddProduct={handleAddProduct} />
     </main>
   );
   // this.App = learn();
