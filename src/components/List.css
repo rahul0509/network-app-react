@@ -1,8 +1,8 @@
 .fruit-item {
-    padding: 8px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    color: var(--text);
-    background-color: var(--background);
-    text-align: left;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  background-color: var(--background);
+  text-align: left;
 }
